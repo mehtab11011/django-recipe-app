@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Recipes</title>
+  <link rel="stylesheet" href="{% static 'recipe_app/view_recipe_page.css' %}">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/chef-hat.png" alt="Logo">
+      <h1>My Recipe App</h1>
+    </div>
+
+    <!-- Search bar inside header -->
+    <form method="get" action="{% url 'view_recipe_page' %}" class="search-form">
+  <input type="text" name="recipe_name" placeholder="Search recipes..." value="{{ request.GET.recipe_name }}">
+  <button type="submit">🔍</button>
+</form>
+
+
+    <!-- Nav -->
+    <div class="nav">
+      <a href="{% url 'home_page_buttons' %}">Home Page</a>
+    </div>
+  </div>
+
+  <!-- Recipes Section -->
+  <div class="container">
+    <h2>🍴 All Recipes</h2>
+
+    <div class="recipes">
+      {% for recipes in get_all %}
+      <div class="card">
+        <img src="{{recipes.image.url}}" alt="{{recipes.name}}">
+        <div class="card-content">
+          <h3>{{recipes.recipe_name}}</h3>
+          <p>{{recipes.description|truncatewords:10}}</p>
+          <a class="btn" href="{% url 'detail_page' recipes.id %}">Read more</a>
+        </div>
+      </div>
+      {% empty %}
+      <p class="no-recipes">No recipes uploaded yet. Be the first to share! 😋</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 My Recipe App | Cook, Share & Enjoy!
+  </div>
+</body>
+</html>

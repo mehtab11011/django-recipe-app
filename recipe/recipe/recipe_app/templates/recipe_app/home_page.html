@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Recipe App — Home</title>
+  <link rel="stylesheet" href={% static 'recipe_app/home_page_button.css' %} />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/chef-hat.png" alt="logo">
+      <h1>My Recipe App</h1>
+    </div>
+  </header>
+
+  <!-- Main card -->
+  <main class="card-wrap">
+    <section class="card">
+      <h2>Welcome 👋</h2>
+      <p class="lead">Cook, share & enjoy — upload your favorite recipes below.</p>
+
+      <div class="actions">
+        <!-- Replace href targets with your real pages (Django URLs or static files) -->
+        <a class="btn primary" href={% url "home_page" %}>Add Recipe</a>
+        <a class="btn" href={% url "view_recipe_page" %}>View All Recipes</a>
+      </div>
+{% comment %} 
+      <div class="search-box">
+        <form method="get" action="search_results.html" class="search-form">
+          <input name="q" type="search" placeholder="Search recipes (eg. pasta, burger)..." required>
+          <button type="submit" class="btn search-btn">Search Recipe</button>
+        </form>
+      </div>
+    </section> {% endcomment %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 My Recipe App | Cook, Share & Enjoy!
+  </footer>
+</body>
+</html>

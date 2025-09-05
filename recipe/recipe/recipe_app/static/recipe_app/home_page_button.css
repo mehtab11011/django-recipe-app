@@ -1,0 +1,122 @@
+:root{
+  --brand:#ff7043;
+  --brand-dark:#e85c2d;
+  --bg:#f7f7f8;
+  --card:#ffffff;
+  --muted:#666;
+  --radius:12px;
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+  --max-width:720px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:var(--bg);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header */
+.header{
+  background:var(--brand);
+  color:#fff;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:40px;height:40px;border-radius:50%}
+.logo h1{margin:0;font-size:20px}
+
+/* Card */
+.card-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 16px;
+}
+.card{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px;
+  text-align:center;
+}
+.card h2{margin:0 0 8px;font-size:24px}
+.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
+
+/* Buttons */
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-bottom:18px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  background: #f1f1f1;
+  color:#222;
+  box-shadow: none;
+  transition: transform .15s, background .15s;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn.primary{
+  background:var(--brand);
+  color:#fff;
+}
+.btn.primary:hover{background:var(--brand-dark)}
+
+/* Search */
+.search-box{margin-top:6px}
+.search-form{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.search-form input[type="search"]{
+  min-width:220px;
+  max-width:420px;
+  width:60%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #e3e3e3;
+  outline:none;
+  font-size:14px;
+}
+.search-btn{
+  background:#0077cc;
+  color:#fff;
+  border-radius:10px;
+  padding:11px 16px;
+}
+.search-btn:hover{background:#005fa3}
+
+/* Footer */
+.footer{
+  margin-top:28px;
+  padding:14px 20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Responsive */
+@media (max-width:560px){
+  .card{padding:20px}
+  .search-form input[type="search"]{width:100%}
+  .actions{flex-direction:column}
+  .btn{width:100%}
+}

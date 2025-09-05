@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Upload</title>
+  <!-- Link CSS file -->
+  <link rel="stylesheet" href="{% static 'recipe_app/home_page.css' %}">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/chef-hat.png" alt="Logo">
+      <h1>My Recipe App</h1>
+    </div>
+  </div>
+
+  <!-- Form Container -->
+  <div class="container">
+    <h2>Upload Your Recipe</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <label for="name">Recipe Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter recipe name" required>
+
+      <label for="description">Recipe Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Enter recipe description" required></textarea>
+
+      <label for="image">Recipe Image</label>
+      <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required>
+
+      <button type="submit">Upload Recipe</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 My Recipe App | Cook, Share & Enjoy!
+  </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{data.recipe_name}}</title>
+  <link rel="stylesheet" href={% static 'recipe_app/recipe_detail.css' %} />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/chef-hat.png" alt="Logo">
+      <h1>My Recipe App</h1>
+    </div>
+    <nav class="nav">
+      <a class="btn btn-light" href="recipe_list.html">← Back to All Recipes</a>
+    </nav>
+  </header>
+
+  <!-- Detail Card -->
+  <main class="container">
+    <article class="detail-card">
+      <div class="media">
+        <img src="{{data.image.url}}" alt="{{data.name}}">
+      </div>
+
+      <div class="content">
+        <h2 class="title">{{data.recipe_name}}</h2>
+
+        {% comment %} <div class="meta">
+          <span class="badge"></span>
+          <span class="badge">Quick</span>
+          <span class="badge">Party</span>
+        </div> {% endcomment %}
+
+        <p class="description">
+          {{data.description}}
+        </p>
+
+        <div class="info-grid">
+          <div class="info">
+            <h4>Prep Time</h4>
+            <p>10 minutes</p>
+          </div>
+          <div class="info">
+            <h4>Serves</h4>
+            <p>4 people</p>
+          </div>
+          <div class="info">
+            <h4>Difficulty</h4>
+            <p>Easy</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a href="{% url "view_recipe_page" %}" class="btn">Back to Recipes</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 My Recipe App | Cook, Share & Enjoy!
+  </footer>
+</body>
+</html>
